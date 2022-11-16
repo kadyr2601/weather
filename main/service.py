@@ -25,7 +25,7 @@ def add_weather(date, temp, desc) -> None:
 
 def get_today_info():
     driver = webdriver.Remote('http://172.21.0.2:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME)
-    # driver = webdriver.Chrome(executable_path="/home/kadyr/Desktop/weather/driver/chromedriver",
+    # driver = webdriver.Chrome(executable_path="/app/backend/driver/chromedriver",
     #                           desired_capabilities=DesiredCapabilities.CHROME)
     driver.get("https://pogoda.meta.ua/ua/Kyivska/Kyivskiy/Kyiv/")
     try:
@@ -54,7 +54,7 @@ def get_today_info():
 
 def get_day_info(id):
     driver = webdriver.Remote('http://172.21.0.2:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME)
-    # driver = webdriver.Chrome(executable_path="/home/kadyr/Desktop/weather/driver/chromedriver",
+    # driver = webdriver.Chrome(executable_path="/app/backend/driver/chromedriver",
     #                           desired_capabilities=DesiredCapabilities.CHROME)
     driver.get("https://pogoda.meta.ua/ua/Kyivska/Kyivskiy/Kyiv/")
     try:
@@ -86,7 +86,7 @@ def get_day_info(id):
 
 def parser():
     driver = webdriver.Remote('http://172.21.0.2:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME)
-    # driver = webdriver.Chrome(executable_path="/home/kadyr/Desktop/weather/driver/chromedriver",
+    # driver = webdriver.Chrome(executable_path="/app/backend/driver/chromedriver",
     #                           desired_capabilities=DesiredCapabilities.CHROME)
     driver.get("https://pogoda.meta.ua/ua/Kyivska/Kyivskiy/Kyiv/")
     try:
