@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+    redis:
+        image: redis:alpine
+    selenium:
+        image: selenium/standalone-chrome:107.0.5304.87
+        ports:
+            - "4444:4444"
+        restart: always
+        environment:
+            VNC_NO_PASSWORD: 1
+    backend:
+        build: .
+        command: python /app/backend/manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/app/backend
+        ports:
+            - 8000:8000
+        depends_on:
+            - redis
+    celery:
+        build: .
+        command: celery -A weather_config worker -l info
+        volumes:
+            - .:/app/backend
+        depends_on:
+            - redis
+    celery-beat:
+        build: .
+        command: celery -A weather_config beat -l info
+        volumes:
+            - .:/app/backend
+        depends_on:
+            - redis

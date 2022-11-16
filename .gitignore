@@ -1,0 +1,15 @@
+.idea
+
+venv
+/venv/
+venv/
+
+db
+db.sqlite3
+
+migrations
+
+*.log
+*.pot
+*.pyc
+__pycache__
